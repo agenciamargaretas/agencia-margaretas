@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React from 'react'
 import Link from 'next/link'
 
 // Dados simplificados
@@ -14,12 +13,6 @@ const projects = [
 ]
 
 export default function PortfolioSection() {
-  const [expandedProject, setExpandedProject] = useState<number | null>(null)
-  
-  const handleProjectHover = (id: number | null) => {
-    setExpandedProject(id)
-  }
-
   return (
     <section className="py-24 px-8 bg-gray-50">
       <div className="container mx-auto">
@@ -51,49 +44,25 @@ export default function PortfolioSection() {
 
         {/* Grid de Projetos - Desktop */}
         <div className="hidden md:flex gap-4 h-[500px]">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
-              className={`flex-1 relative rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ${
-                expandedProject === project.id ? 'flex-[3]' : 'flex-1'
-              }`}
+              className="flex-1 relative rounded-xl overflow-hidden cursor-pointer"
               style={{
                 background: 'linear-gradient(to bottom, #00052B, #000000)'
               }}
-              onMouseEnter={() => handleProjectHover(project.id)}
-              onMouseLeave={() => handleProjectHover(null)}
             >
               {/* Número do projeto */}
               <div className="absolute top-6 right-6 bg-white w-12 h-12 rounded-full flex items-center justify-center z-20">
                 <span className="font-poppins font-semibold text-gray-900">{project.number}</span>
               </div>
               
-              {/* Título vertical quando não expandido */}
-              {expandedProject !== project.id && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="font-poppins text-2xl font-semibold text-white transform -rotate-90">
-                    {project.title}
-                  </h3>
-                </div>
-              )}
-              
-              {/* Conteúdo expandido */}
-              {expandedProject === project.id && (
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <h3 className="font-poppins text-2xl font-semibold text-white mb-4">
-                    {project.title}
-                  </h3>
-                  <p className="font-poppins text-white/80 mb-4 max-w-md">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                  <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit transition-colors">
-                    Ver projeto
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
-                </div>
-              )}
+              {/* Título vertical */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="font-poppins text-2xl font-semibold text-white transform -rotate-90">
+                  {project.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
