@@ -11,6 +11,7 @@ const projects = [
     title: "Marketing Digital",
     category: "marketing",
     number: "01",
+    color: "from-blue-600 to-blue-800",
     description: "Estratégias personalizadas para aumentar sua presença online e gerar resultados reais com foco em conversão."
   },
   {
@@ -18,6 +19,7 @@ const projects = [
     title: "Design & Branding",
     category: "design",
     number: "02",
+    color: "from-orange-500 to-orange-700",
     description: "Criação de identidade visual que comunica a essência da sua marca e conecta com seu público-alvo."
   },
   {
@@ -25,6 +27,7 @@ const projects = [
     title: "Inteligência Artificial",
     category: "ia",
     number: "03",
+    color: "from-blue-500 to-blue-700",
     description: "Soluções inovadoras com IA para automatizar e otimizar seus processos, aumentando eficiência e reduzindo custos."
   },
   {
@@ -32,6 +35,7 @@ const projects = [
     title: "Web & Mobile",
     category: "web",
     number: "04",
+    color: "from-orange-400 to-orange-600",
     description: "Desenvolvimento de sites e aplicativos responsivos e de alta performance que convertem visitantes em clientes."
   },
   {
@@ -39,6 +43,7 @@ const projects = [
     title: "Email Marketing",
     category: "email",
     number: "05",
+    color: "from-blue-600 to-blue-800",
     description: "Campanhas de email marketing estratégicas para nutrir leads e convertê-los em clientes fiéis à sua marca."
   }
 ]
@@ -85,11 +90,11 @@ export default function PortfolioSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-accent font-poppins font-medium mb-2">
+            <span className="inline-block text-blue-600 font-poppins font-medium mb-2">
               NOSSOS PROJETOS
             </span>
             <h2 className="font-poppins text-4xl md:text-5xl font-semibold text-gray-900 max-w-xl">
-              Use SEO para impulsionar o crescimento do seu negócio
+              Portfólio online
             </h2>
           </motion.div>
           
@@ -101,10 +106,12 @@ export default function PortfolioSection() {
             className="mt-6 md:mt-0"
           >
             <Link 
-              href="/portfolio"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 transition-colors font-poppins font-semibold text-white px-8 py-4 rounded-lg"
+              href="https://www.behance.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors font-poppins font-semibold text-white px-8 py-4 rounded-lg"
             >
-              EXPLORAR MAIS
+              PORTFÓLIO BEHANCE
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -130,64 +137,147 @@ export default function PortfolioSection() {
         </div>
 
         {/* Grid de Projetos - Desktop */}
-        <div className="hidden md:flex gap-4 h-[500px]">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
-                expandedProject === project.id 
-                  ? 'flex-grow-[8]' 
-                  : 'flex-grow'
-              }`}
-              style={{
-                background: `linear-gradient(to bottom, #6366f1, #4f46e5)`,
-              }}
-              onMouseEnter={() => handleProjectHover(project.id)}
-              onMouseLeave={() => handleProjectHover(null)}
-              onClick={() => handleProjectClick(project.id)}
-            >
-              {/* Número do projeto */}
-              <div className="absolute top-6 right-6 bg-white w-12 h-12 rounded-full flex items-center justify-center z-20">
-                <span className="font-poppins font-semibold text-gray-900">{project.number}</span>
-              </div>
-              
-              {/* Título verticalizado (quando não expandido) */}
-              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
-                expandedProject === project.id ? 'opacity-0' : 'opacity-100'
+        <div className="hidden md:flex flex-col gap-4">
+          {/* Primeira linha - projeto horizontal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer"
+            style={{
+              background: `linear-gradient(to right, #1e40af, #3b82f6)`,
+            }}
+            onMouseEnter={() => handleProjectHover(projects[0].id)}
+            onMouseLeave={() => handleProjectHover(null)}
+            onClick={() => handleProjectClick(projects[0].id)}
+          >
+            {/* Número do projeto */}
+            <div className="absolute top-6 right-6 bg-white w-12 h-12 rounded-full flex items-center justify-center z-20">
+              <span className="font-poppins font-semibold text-gray-900">{projects[0].number}</span>
+            </div>
+            
+            {/* Conteúdo */}
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 className="font-poppins text-3xl font-semibold text-white mb-2">
+                {projects[0].title}
+              </h3>
+              <p className={`font-poppins text-white/90 mb-4 max-w-md transition-opacity duration-500 ${
+                expandedProject === projects[0].id ? 'opacity-100' : 'opacity-0'
               }`}>
-                <h3 className="font-poppins text-2xl font-semibold text-white transform -rotate-90 whitespace-nowrap">
-                  {project.title}
-                </h3>
-              </div>
-              
-              {/* Conteúdo expandido */}
-              <div className={`absolute inset-0 p-8 flex flex-col justify-end transition-opacity duration-500 ${
-                expandedProject === project.id ? 'opacity-100' : 'opacity-0'
+                {projects[0].description}
+              </p>
+              <button className={`inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
+                expandedProject === projects[0].id ? 'opacity-100' : 'opacity-0'
               }`}>
-                <h3 className="font-poppins text-3xl font-semibold text-white mb-4">
-                  {project.title}
-                </h3>
-                <p className="font-poppins text-white/90 mb-6 max-w-md">
-                  {project.description}
-                </p>
-                <button className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-colors">
-                  Ver projeto
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
-          ))}
+                Ver projeto
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </motion.div>
+          
+          {/* Linha do meio - 3 projetos verticais */}
+          <div className="flex gap-4 h-[500px]">
+            {projects.slice(1, 4).map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
+                  expandedProject === project.id 
+                    ? 'flex-grow-[8]' 
+                    : 'flex-grow'
+                }`}
+                style={{
+                  background: `linear-gradient(to bottom, ${index % 2 === 0 ? '#1e40af, #3b82f6' : '#f97316, #ea580c'})`,
+                }}
+                onMouseEnter={() => handleProjectHover(project.id)}
+                onMouseLeave={() => handleProjectHover(null)}
+                onClick={() => handleProjectClick(project.id)}
+              >
+                {/* Número do projeto */}
+                <div className="absolute top-6 right-6 bg-white w-12 h-12 rounded-full flex items-center justify-center z-20">
+                  <span className="font-poppins font-semibold text-gray-900">{project.number}</span>
+                </div>
+                
+                {/* Título verticalizado (quando não expandido) */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+                  expandedProject === project.id ? 'opacity-0' : 'opacity-100'
+                }`}>
+                  <h3 className="font-poppins text-2xl font-semibold text-white transform -rotate-90 whitespace-nowrap">
+                    {project.title}
+                  </h3>
+                </div>
+                
+                {/* Conteúdo expandido */}
+                <div className={`absolute inset-0 p-8 flex flex-col justify-end transition-opacity duration-500 ${
+                  expandedProject === project.id ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <h3 className="font-poppins text-3xl font-semibold text-white mb-4">
+                    {project.title}
+                  </h3>
+                  <p className="font-poppins text-white/90 mb-6 max-w-md">
+                    {project.description}
+                  </p>
+                  <button className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-colors">
+                    Ver projeto
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Última linha - projeto horizontal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer"
+            style={{
+              background: `linear-gradient(to right, #f97316, #ea580c)`,
+            }}
+            onMouseEnter={() => handleProjectHover(projects[4].id)}
+            onMouseLeave={() => handleProjectHover(null)}
+            onClick={() => handleProjectClick(projects[4].id)}
+          >
+            {/* Número do projeto */}
+            <div className="absolute top-6 right-6 bg-white w-12 h-12 rounded-full flex items-center justify-center z-20">
+              <span className="font-poppins font-semibold text-gray-900">{projects[4].number}</span>
+            </div>
+            
+            {/* Conteúdo */}
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 className="font-poppins text-3xl font-semibold text-white mb-2">
+                {projects[4].title}
+              </h3>
+              <p className={`font-poppins text-white/90 mb-4 max-w-md transition-opacity duration-500 ${
+                expandedProject === projects[4].id ? 'opacity-100' : 'opacity-0'
+              }`}>
+                {projects[4].description}
+              </p>
+              <button className={`inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
+                expandedProject === projects[4].id ? 'opacity-100' : 'opacity-0'
+              }`}>
+                Ver projeto
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </motion.div>
         </div>
 
         {/* Grid de Projetos - Mobile */}
         <div className="grid grid-cols-1 gap-6 md:hidden">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -196,7 +286,7 @@ export default function PortfolioSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative rounded-xl overflow-hidden h-64"
               style={{
-                background: `linear-gradient(to bottom, #6366f1, #4f46e5)`,
+                background: `linear-gradient(to bottom, ${index % 2 === 0 ? '#1e40af, #3b82f6' : '#f97316, #ea580c'})`,
               }}
               onClick={() => handleProjectClick(project.id)}
             >
@@ -270,7 +360,7 @@ export default function PortfolioSection() {
                 </div>
                 
                 <div className="flex justify-end">
-                  <button className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-poppins font-medium px-6 py-3 rounded-lg transition-colors">
+                  <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-poppins font-medium px-6 py-3 rounded-lg transition-colors">
                     Ver projeto completo
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
