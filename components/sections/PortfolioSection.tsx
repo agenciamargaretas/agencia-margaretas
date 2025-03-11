@@ -5,11 +5,11 @@ import Link from 'next/link'
 
 // Dados simplificados
 const projects = [
-  { id: 1, title: "Marketing Digital", number: "01" },
-  { id: 2, title: "Design & Branding", number: "02" },
-  { id: 3, title: "Inteligência Artificial", number: "03" },
-  { id: 4, title: "Web & Mobile", number: "04" },
-  { id: 5, title: "Email Marketing", number: "05" }
+  { id: 1, title: "Marketing Digital", number: "01", behanceUrl: "https://www.behance.net/gallery/marketing-digital" },
+  { id: 2, title: "Design & Branding", number: "02", behanceUrl: "https://www.behance.net/gallery/design-branding" },
+  { id: 3, title: "Inteligência Artificial", number: "03", behanceUrl: "https://www.behance.net/gallery/inteligencia-artificial" },
+  { id: 4, title: "Web & Mobile", number: "04", behanceUrl: "https://www.behance.net/gallery/web-mobile" },
+  { id: 5, title: "Email Marketing", number: "05", behanceUrl: "https://www.behance.net/gallery/email-marketing" }
 ]
 
 export default function PortfolioSection() {
@@ -53,7 +53,10 @@ export default function PortfolioSection() {
                 expandedProject === project.id ? 'flex-[3]' : 'flex-1'
               }`}
               style={{
-                background: 'linear-gradient(to bottom, #00052B, #000000)'
+                background: expandedProject === project.id 
+                  ? 'linear-gradient(135deg, #010b40 0%, #f97316 100%)' 
+                  : 'linear-gradient(to bottom, #010b40, #000000)',
+                transition: 'background 0.5s ease-in-out'
               }}
               onMouseEnter={() => setExpandedProject(project.id)}
               onMouseLeave={() => setExpandedProject(null)}
@@ -81,12 +84,17 @@ export default function PortfolioSection() {
                   <p className="font-poppins text-white/80 mb-4 max-w-md">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
-                  <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit transition-colors">
+                  <Link 
+                    href={project.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit transition-colors"
+                  >
                     Ver projeto
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -100,7 +108,7 @@ export default function PortfolioSection() {
               key={project.id}
               className="relative rounded-xl overflow-hidden h-64"
               style={{
-                background: 'linear-gradient(to bottom, #00052B, #000000)'
+                background: 'linear-gradient(to bottom, #010b40, #000000)'
               }}
             >
               {/* Número do projeto */}
@@ -113,12 +121,17 @@ export default function PortfolioSection() {
                 <h3 className="font-poppins text-2xl font-semibold text-white mb-2">
                   {project.title}
                 </h3>
-                <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit text-sm transition-colors">
+                <Link 
+                  href={project.behanceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit text-sm transition-colors"
+                >
                   Ver projeto
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
