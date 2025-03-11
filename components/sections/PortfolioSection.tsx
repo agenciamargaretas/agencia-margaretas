@@ -19,29 +19,13 @@ export default function PortfolioSection() {
     <section className="py-24 px-8 bg-gray-50">
       <div className="container mx-auto">
         {/* Cabeçalho da Seção */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-          <div>
-            <span className="inline-block text-[#f97316] font-poppins font-medium mb-2">
-              NOSSOS PROJETOS
-            </span>
-            <h2 className="font-poppins text-4xl font-semibold text-gray-900 max-w-xl">
-              Portfólio online
-            </h2>
-          </div>
-          
-          <div className="mt-6 md:mt-0">
-            <Link 
-              href="https://www.behance.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 transition-colors font-poppins font-semibold text-white px-8 py-4 rounded-lg"
-            >
-              PORTFÓLIO BEHANCE
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
-          </div>
+        <div className="mb-12">
+          <span className="inline-block text-[#f97316] font-poppins font-medium mb-2">
+            NOSSO OLHAR E DESIGN
+          </span>
+          <h2 className="font-poppins text-4xl font-semibold text-gray-900 max-w-xl">
+            Portfólio online
+          </h2>
         </div>
 
         {/* Grid de Projetos - Desktop */}
@@ -53,10 +37,7 @@ export default function PortfolioSection() {
                 expandedProject === project.id ? 'flex-[3]' : 'flex-1'
               }`}
               style={{
-                background: expandedProject === project.id 
-                  ? 'linear-gradient(135deg, #010b40 0%, #f97316 100%)' 
-                  : 'linear-gradient(to bottom, #010b40, #000000)',
-                transition: 'background 0.5s ease-in-out'
+                backgroundColor: '#010b40'
               }}
               onMouseEnter={() => setExpandedProject(project.id)}
               onMouseLeave={() => setExpandedProject(null)}
@@ -108,7 +89,7 @@ export default function PortfolioSection() {
               key={project.id}
               className="relative rounded-xl overflow-hidden h-64"
               style={{
-                background: 'linear-gradient(to bottom, #010b40, #000000)'
+                backgroundColor: '#010b40'
               }}
             >
               {/* Número do projeto */}
