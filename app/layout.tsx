@@ -1,6 +1,6 @@
 import { Providers } from './providers'
 import MainNavbar from '@/components/layout/Navbar'
-import { DM_Sans, Khand } from 'next/font/google'
+import { DM_Sans, Poppins } from 'next/font/google'
 import './globals.css'
 
 const dmSans = DM_Sans({ 
@@ -9,10 +9,10 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans'
 })
 
-const khand = Khand({
+const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-khand'
+  variable: '--font-poppins'
 })
 
 export const metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${khand.variable} font-sans`}>
+      <body className={`${dmSans.variable} ${poppins.variable} font-sans`}>
         <Providers>
           <MainNavbar />
           {children}

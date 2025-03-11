@@ -77,7 +77,7 @@ export default function MainNavbar() {
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="font-display font-semibold text-4xl text-accent tracking-wider"
+            className="font-poppins font-semibold text-4xl text-accent tracking-wider"
           >
             MARGARETAS
           </motion.p>
@@ -95,7 +95,7 @@ export default function MainNavbar() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link 
-                  className="font-sans text-foreground/90 hover:text-accent transition-colors text-lg font-medium tracking-wide"
+                  className="font-poppins text-foreground/90 hover:text-accent transition-colors text-lg font-medium tracking-widest rounded-lg"
                   href={item.href}
                 >
                   {item.label}
@@ -111,7 +111,7 @@ export default function MainNavbar() {
           >
             <Link 
               href="/contato"
-              className="font-sans text-lg font-medium tracking-widest text-foreground/90 hover:text-accent transition-colors"
+              className="font-poppins text-lg font-medium tracking-widest text-foreground/90 hover:text-accent transition-colors rounded-lg"
             >
               FALE CONOSCO
             </Link>
