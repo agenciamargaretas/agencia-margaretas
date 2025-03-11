@@ -48,25 +48,10 @@ const projects = [
   }
 ]
 
-// Categorias para filtros
-const categories = [
-  { id: "all", name: "Todos" },
-  { id: "marketing", name: "Marketing" },
-  { id: "design", name: "Design" },
-  { id: "ia", name: "IA" },
-  { id: "web", name: "Web" },
-  { id: "email", name: "Email" }
-]
-
 export default function PortfolioSection() {
-  const [activeCategory, setActiveCategory] = useState("all")
   const [expandedProject, setExpandedProject] = useState<number | null>(null)
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
   
-  const filteredProjects = activeCategory === "all" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory)
-
   const handleProjectHover = (id: number | null) => {
     setExpandedProject(id)
   }
@@ -90,7 +75,7 @@ export default function PortfolioSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-blue-600 font-poppins font-medium mb-2">
+            <span className="inline-block text-[#1e40af] font-poppins font-medium mb-2">
               NOSSOS PROJETOS
             </span>
             <h2 className="font-poppins text-4xl md:text-5xl font-semibold text-gray-900 max-w-xl">
@@ -109,7 +94,7 @@ export default function PortfolioSection() {
               href="https://www.behance.net/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors font-poppins font-semibold text-white px-8 py-4 rounded-lg"
+              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 transition-colors font-poppins font-semibold text-white px-8 py-4 rounded-lg"
             >
               PORTFÓLIO BEHANCE
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,23 +102,6 @@ export default function PortfolioSection() {
               </svg>
             </Link>
           </motion.div>
-        </div>
-
-        {/* Filtros */}
-        <div className="flex flex-wrap gap-4 mb-12">
-          {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full font-poppins font-medium transition-colors ${
-                activeCategory === category.id
-                  ? "bg-accent text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
         </div>
 
         {/* Grid de Projetos - Desktop */}
@@ -144,10 +112,7 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer"
-            style={{
-              background: `linear-gradient(to right, #1e40af, #3b82f6)`,
-            }}
+            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer bg-[#1e40af]"
             onMouseEnter={() => handleProjectHover(projects[0].id)}
             onMouseLeave={() => handleProjectHover(null)}
             onClick={() => handleProjectClick(projects[0].id)}
@@ -167,7 +132,7 @@ export default function PortfolioSection() {
               }`}>
                 {projects[0].description}
               </p>
-              <button className={`inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
+              <button className={`inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
                 expandedProject === projects[0].id ? 'opacity-100' : 'opacity-0'
               }`}>
                 Ver projeto
@@ -191,10 +156,7 @@ export default function PortfolioSection() {
                   expandedProject === project.id 
                     ? 'flex-grow-[8]' 
                     : 'flex-grow'
-                }`}
-                style={{
-                  background: `linear-gradient(to bottom, ${index % 2 === 0 ? '#1e40af, #3b82f6' : '#f97316, #ea580c'})`,
-                }}
+                } bg-[#1e40af]`}
                 onMouseEnter={() => handleProjectHover(project.id)}
                 onMouseLeave={() => handleProjectHover(null)}
                 onClick={() => handleProjectClick(project.id)}
@@ -223,7 +185,7 @@ export default function PortfolioSection() {
                   <p className="font-poppins text-white/90 mb-6 max-w-md">
                     {project.description}
                   </p>
-                  <button className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-colors">
+                  <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-colors">
                     Ver projeto
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -240,10 +202,7 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer"
-            style={{
-              background: `linear-gradient(to right, #f97316, #ea580c)`,
-            }}
+            className="relative rounded-xl overflow-hidden h-64 w-full cursor-pointer bg-[#1e40af]"
             onMouseEnter={() => handleProjectHover(projects[4].id)}
             onMouseLeave={() => handleProjectHover(null)}
             onClick={() => handleProjectClick(projects[4].id)}
@@ -263,7 +222,7 @@ export default function PortfolioSection() {
               }`}>
                 {projects[4].description}
               </p>
-              <button className={`inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
+              <button className={`inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-6 py-3 rounded-lg w-fit transition-all duration-500 ${
                 expandedProject === projects[4].id ? 'opacity-100' : 'opacity-0'
               }`}>
                 Ver projeto
@@ -284,10 +243,7 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative rounded-xl overflow-hidden h-64"
-              style={{
-                background: `linear-gradient(to bottom, ${index % 2 === 0 ? '#1e40af, #3b82f6' : '#f97316, #ea580c'})`,
-              }}
+              className="relative rounded-xl overflow-hidden h-64 bg-[#1e40af]"
               onClick={() => handleProjectClick(project.id)}
             >
               {/* Número do projeto */}
@@ -303,7 +259,7 @@ export default function PortfolioSection() {
                 <p className="font-poppins text-white/90 mb-4 text-sm">
                   {project.description}
                 </p>
-                <button className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit text-sm transition-colors">
+                <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-4 py-2 rounded-lg w-fit text-sm transition-colors">
                   Ver projeto
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -360,7 +316,7 @@ export default function PortfolioSection() {
                 </div>
                 
                 <div className="flex justify-end">
-                  <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-poppins font-medium px-6 py-3 rounded-lg transition-colors">
+                  <button className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-6 py-3 rounded-lg transition-colors">
                     Ver projeto completo
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -374,4 +330,4 @@ export default function PortfolioSection() {
       </AnimatePresence>
     </section>
   )
-} 
+}
