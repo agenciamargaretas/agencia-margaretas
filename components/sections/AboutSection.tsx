@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import React from 'react'
 import Image from 'next/image'
+// Removendo a importação do Image que não está sendo usada
+// import Image from 'next/image'
 
 export default function AboutSection() {
   return (
@@ -11,14 +14,14 @@ export default function AboutSection() {
           {/* Coluna da Imagem com elementos flutuantes */}
           <div className="relative">
             {/* Imagem principal com bordas arredondadas */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/about-team.jpg" // Substitua pelo caminho da sua imagem
-                alt="Equipe Margaretas"
-                width={600}
-                height={500}
-                className="w-full h-auto object-cover"
-              />
+            <div 
+              className="relative rounded-3xl overflow-hidden shadow-xl h-[500px]"
+              style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=500')",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}
+            >
             </div>
             
             {/* Elemento flutuante - Estatística */}
