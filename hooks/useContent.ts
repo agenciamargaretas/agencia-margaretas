@@ -1,10 +1,10 @@
 "use client"
 
 // hooks/useContent.ts
-// Hooks personalizados para gerenciar conteúdo do CMS
+// Hooks personalizados para gerenciar conteúdo do Sanity CMS
 
 import { useState, useEffect } from 'react'
-import { cmsClient, fallbackData, type HeroContent, type Service, type PortfolioItem, type Testimonial } from '@/lib/cms'
+import { client, fallbackData, type HeroContent, type Service, type PortfolioItem, type Testimonial, heroQuery, servicesQuery, portfolioQuery, testimonialsQuery, urlFor } from '@/lib/sanity'
 
 export function useHeroContent() {
   const [content, setContent] = useState<HeroContent | null>(null)
@@ -15,7 +15,7 @@ export function useHeroContent() {
     async function fetchContent() {
       try {
         setLoading(true)
-        const data = await cmsClient.getHeroContent()
+        const data = await client.fetch(heroQuery)
         
         if (data) {
           setContent(data)
@@ -47,7 +47,7 @@ export function useServices() {
     async function fetchServices() {
       try {
         setLoading(true)
-        const data = await cmsClient.getServices()
+        const data = await client.fetch(servicesQuery)
         
         if (data && data.length > 0) {
           setServices(data)
@@ -78,7 +78,7 @@ export function usePortfolio() {
     async function fetchPortfolio() {
       try {
         setLoading(true)
-        const data = await cmsClient.getPortfolio()
+        const data = await client.fetch(portfolioQuery)
         setPortfolio(data || [])
       } catch (err) {
         console.error('Erro ao carregar portfolio:', err)
@@ -104,7 +104,7 @@ export function useTestimonials() {
     async function fetchTestimonials() {
       try {
         setLoading(true)
-        const data = await cmsClient.getTestimonials()
+        const data = await client.fetch(testimonialsQuery)
         setTestimonials(data || [])
       } catch (err) {
         console.error('Erro ao carregar depoimentos:', err)
@@ -148,4 +148,12 @@ export function useRevalidate() {
   }
 
   return { revalidate, revalidating }
+}
+
+// Hook utilitário para imagens do Sanity
+export function useSanityImage(image: any) {
+  if (!image?.asset?._ref) return null
+  
+  const url = urlFor(image)
+  return url ? url.url() : null
 } 

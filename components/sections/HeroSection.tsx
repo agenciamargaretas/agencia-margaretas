@@ -1,6 +1,6 @@
 "use client"
 
-import { useHeroContent } from '@/hooks/useContent'
+import { useHeroContent, useSanityImage } from '@/hooks/useContent'
 import Image from 'next/image'
 
 export default function HeroSection() {
@@ -12,11 +12,11 @@ export default function HeroSection() {
     subtitle: "Transformamos marcas com comunicação integrada e coesa — sem você carregar tudo nas costas.",
     ctaText: "Fale conosco",
     ctaLink: "#contato",
-    backgroundImage: {
-      url: "/images/hero-bg.jpg",
-      alt: "Background hero"
-    }
+    backgroundImage: undefined
   }
+
+  // Processar imagem do Sanity
+  const backgroundImageUrl = useSanityImage(heroContent.backgroundImage)
 
   if (loading) {
     return (
@@ -43,12 +43,12 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#f97316]/5 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      {/* Background Image from CMS */}
-      {heroContent.backgroundImage?.url && (
+      {/* Background Image from Sanity CMS */}
+      {backgroundImageUrl && (
         <div className="absolute inset-0">
           <Image 
-            src={heroContent.backgroundImage.url} 
-            alt={heroContent.backgroundImage.alt || "Background"}
+            src={backgroundImageUrl} 
+            alt={heroContent.backgroundImage?.alt || "Background"}
             fill
             className="object-cover opacity-20"
             priority
