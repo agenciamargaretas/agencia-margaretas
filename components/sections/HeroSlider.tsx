@@ -17,7 +17,7 @@ export default function HeroSlider() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="font-poppins text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold mb-8 tracking-wider"
+            className="text-display mb-8 tracking-wider"
           >
             <span className="block mb-4">UMA AGÊNCIA</span>
             <span className="block mb-4">PARA QUEM ODEIA</span>
@@ -28,7 +28,7 @@ export default function HeroSlider() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-poppins text-xl md:text-2xl text-foreground/90 mb-10 tracking-wide mt-8"
+            className="text-body-large text-foreground/90 mb-10 tracking-wide mt-8"
           >
             Marketing digital estratégico e soluções personalizadas para impulsionar seu negócio no ambiente online.
           </motion.p>
@@ -40,7 +40,7 @@ export default function HeroSlider() {
           >
             <Link 
               href="/contato"
-              className="inline-block bg-accent hover:bg-accent/90 transition-colors font-poppins font-semibold text-background text-xl tracking-wider py-4 px-8 rounded-lg"
+              className="inline-block bg-accent hover:bg-accent/90 transition-colors text-button text-background tracking-wider py-4 px-8 rounded-lg"
             >
               QUERO CONHECER
             </Link>

@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function AboutSection() {
   return (
-    <section className="py-24 px-8 bg-gray-50">
+    <section id="sobre" className="py-24 px-8 bg-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Coluna da Imagem com elementos flutuantes */}
@@ -25,10 +25,10 @@ export default function AboutSection() {
             </div>
             
             {/* Elemento flutuante - Estatística */}
-            <div className="absolute top-10 -right-10 bg-white rounded-xl shadow-lg p-4 z-10">
+            <div className="absolute top-10 -right-10 bg-white rounded-xl shadow-md p-4 z-10">
               <div className="text-center">
                 <p className="text-gray-600 text-sm">Clientes atendidos</p>
-                <p className="text-[#010b40] text-4xl font-bold">200+</p>
+                <p className="text-[#010b40] text-h2">200+</p>
                 <div className="mt-2">
                   <svg className="w-full" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 20C40 5 60 35 100 20C140 5 160 35 200 20" stroke="#f97316" strokeWidth="2"/>
@@ -38,7 +38,7 @@ export default function AboutSection() {
             </div>
             
             {/* Elemento flutuante - Avaliações */}
-            <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-lg p-4 z-10">
+            <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-md p-4 z-10">
               <div className="flex items-center gap-2">
                 <div className="bg-[#f97316] rounded-full p-2">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@ export default function AboutSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">5 Estrelas</p>
+                  <p className="text-h4 text-gray-900">5 Estrelas</p>
                   <p className="text-sm text-gray-600">Avaliação dos clientes</p>
                 </div>
               </div>
@@ -66,19 +66,19 @@ export default function AboutSection() {
           
           {/* Coluna do Texto */}
           <div>
-            <div className="inline-block bg-blue-100 text-[#010b40] font-poppins font-medium px-4 py-2 rounded-full mb-6">
+            <div className="inline-block bg-blue-100 text-[#010b40] text-caption px-4 py-2 rounded-full mb-6">
               SOBRE A MARGARETAS
             </div>
             
-            <h2 className="font-poppins text-4xl md:text-5xl font-semibold text-gray-900 mb-6">
+            <h2 className="text-h1 text-gray-900 mb-6">
               Vamos Criar Algo Incrível Juntos
             </h2>
             
-            <p className="font-poppins text-lg text-gray-600 mb-6">
+            <p className="text-body text-gray-600 mb-6">
               Não somos apenas mais uma agência - somos seus parceiros de crescimento digital. Com anos de experiência no mercado e uma paixão por inovação, nossa equipe está dedicada a entregar resultados mensuráveis que impulsionam seu negócio.
             </p>
             
-            <p className="font-poppins text-lg text-gray-600 mb-8">
+            <p className="text-body text-gray-600 mb-8">
               Já atendemos mais de 200 clientes pelo Brasil e mundo, transformando ideias em projetos de sucesso. Nossa abordagem personalizada e foco em resultados nos diferencia no mercado.
             </p>
             
@@ -90,7 +90,7 @@ export default function AboutSection() {
                       <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <h3 className="font-poppins font-semibold text-gray-900">Projetos Premiados</h3>
+                  <h3 className="text-h4 text-gray-900">Projetos Premiados</h3>
                 </div>
                 <p className="text-gray-600 pl-12">Reconhecidos pela excelência e criatividade</p>
               </div>
@@ -102,7 +102,7 @@ export default function AboutSection() {
                       <path d="M12 8V12L15 15M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <h3 className="font-poppins font-semibold text-gray-900">Entrega Pontual</h3>
+                  <h3 className="text-h4 text-gray-900">Entrega Pontual</h3>
                 </div>
                 <p className="text-gray-600 pl-12">Comprometidos com prazos e qualidade</p>
               </div>
@@ -110,7 +110,7 @@ export default function AboutSection() {
             
             <a 
               href="#contato" 
-              className="inline-flex items-center gap-2 bg-[#010b40] hover:bg-[#010b40]/90 text-white font-poppins font-medium px-8 py-4 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-[#010b40] hover:bg-[#010b40]/90 text-white text-button px-8 py-4 rounded-lg transition-colors"
             >
               Vamos Conversar
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

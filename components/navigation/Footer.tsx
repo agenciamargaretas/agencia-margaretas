@@ -9,8 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo e Descrição */}
           <div className="md:col-span-2">
-            <h2 className="font-poppins font-bold text-2xl mb-4">Margaretas</h2>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <h2 className="text-h4 mb-4">Margaretas</h2>
+            <p className="text-body text-gray-300 mb-6 max-w-md">
               Transformamos ideias em experiências digitais impactantes que geram resultados reais para o seu negócio.
             </p>
             <div className="flex space-x-4">
@@ -23,19 +23,18 @@ export default function Footer() {
           
           {/* Links Rápidos */}
           <div>
-            <h3 className="font-poppins font-semibold text-lg mb-4">Links Rápidos</h3>
+            <h3 className="text-h4 mb-4">Links Rápidos</h3>
             <ul className="space-y-3">
               <FooterLink href="#inicio" label="Início" />
               <FooterLink href="#sobre" label="Sobre Nós" />
               <FooterLink href="#valores" label="Nossos Valores" />
-              <FooterLink href="#portfolio" label="Portfólio" />
               <FooterLink href="#contato" label="Contato" />
             </ul>
           </div>
           
           {/* Contato */}
           <div>
-            <h3 className="font-poppins font-semibold text-lg mb-4">Contato</h3>
+            <h3 className="text-h4 mb-4">Contato</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-1 flex-shrink-0">

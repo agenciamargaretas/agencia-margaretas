@@ -7,10 +7,10 @@ export default function ContactSection() {
     <section id="contato" className="py-24 px-8 bg-gray-50">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <span className="inline-block text-[#f97316] font-poppins font-medium mb-2">
+          <span className="inline-block text-[#f97316] text-caption mb-2">
             ENTRE EM CONTATO
           </span>
-          <h2 className="font-poppins text-4xl font-semibold text-gray-900">
+          <h2 className="text-h2 text-gray-900">
             Vamos conversar sobre seu projeto
           </h2>
         </div>
@@ -61,7 +61,7 @@ export default function ContactSection() {
               
               <button
                 type="submit"
-                className="w-full bg-[#010b40] hover:bg-[#010b40]/90 text-white font-poppins font-medium px-8 py-4 rounded-lg transition-colors"
+                className="w-full bg-[#010b40] hover:bg-[#010b40]/90 text-white text-button px-8 py-4 rounded-lg transition-colors"
               >
                 Enviar mensagem
               </button>

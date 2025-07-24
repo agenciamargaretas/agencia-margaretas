@@ -78,13 +78,13 @@ export default function AgencyValueSection() {
       <div className="container mx-auto">
         {/* Cabeçalho da Seção */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
-          <span className="inline-block text-[#f97316] font-poppins font-medium mb-2">
+          <span className="inline-block text-[#f97316] text-caption mb-2">
             POR QUE ESCOLHER A MARGARETAS
           </span>
-          <h2 className="font-poppins text-4xl md:text-5xl font-semibold text-gray-900 mb-6">
+          <h2 className="text-h2 text-gray-900 mb-6">
             Transformamos ideias em resultados reais
           </h2>
-          <p className="font-poppins text-lg text-gray-600">
+          <p className="text-body text-gray-600">
             Somos uma agência focada em entregar soluções criativas e estratégicas que impulsionam o crescimento do seu negócio no ambiente digital.
           </p>
         </div>
@@ -102,10 +102,10 @@ export default function AgencyValueSection() {
               >
                 {value.icon}
               </div>
-              <h3 className="font-poppins text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-h4 text-gray-900 mb-3">
                 {value.title}
               </h3>
-              <p className="font-poppins text-gray-600">
+              <p className="text-body text-gray-600">
                 {value.description}
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function AgencyValueSection() {
         <div className="mt-16 text-center">
           <a 
             href="#contato" 
-            className="inline-flex items-center gap-2 bg-[#010b40] hover:bg-[#010b40]/90 text-white font-poppins font-medium px-8 py-4 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-[#010b40] hover:bg-[#010b40]/90 text-white text-button px-8 py-4 rounded-lg transition-colors"
           >
             Vamos conversar sobre seu projeto
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

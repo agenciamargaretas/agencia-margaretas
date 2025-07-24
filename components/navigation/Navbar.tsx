@@ -24,14 +24,14 @@ export default function Navbar() {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className={`font-poppins font-bold text-2xl ${isScrolled ? 'text-[#010b40]' : 'text-white'}`}>
+            <span className={`text-h4 ${isScrolled ? 'text-[#010b40]' : 'text-white'}`}>
               Margaretas
             </span>
           </Link>
@@ -40,11 +40,10 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="#sobre" label="Sobre" isScrolled={isScrolled} />
             <NavLink href="#valores" label="Valores" isScrolled={isScrolled} />
-            <NavLink href="#portfolio" label="Portfólio" isScrolled={isScrolled} />
             <NavLink href="#contato" label="Contato" isScrolled={isScrolled} />
             <a 
               href="#contato" 
-              className="bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-5 py-2 rounded-lg transition-colors"
+              className="bg-[#f97316] hover:bg-[#f97316]/90 text-white text-button px-5 py-2 rounded-lg transition-colors"
             >
               Fale Conosco
             </a>
@@ -91,11 +90,10 @@ export default function Navbar() {
             <nav className="flex flex-col space-y-4 px-4">
               <MobileNavLink href="#sobre" label="Sobre" onClick={() => setIsMenuOpen(false)} />
               <MobileNavLink href="#valores" label="Valores" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavLink href="#portfolio" label="Portfólio" onClick={() => setIsMenuOpen(false)} />
               <MobileNavLink href="#contato" label="Contato" onClick={() => setIsMenuOpen(false)} />
               <a 
                 href="#contato" 
-                className="bg-[#f97316] hover:bg-[#f97316]/90 text-white font-poppins font-medium px-5 py-2 rounded-lg transition-colors text-center"
+                className="bg-[#f97316] hover:bg-[#f97316]/90 text-white text-button px-5 py-2 rounded-lg transition-colors text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Fale Conosco
@@ -113,7 +111,7 @@ function NavLink({ href, label, isScrolled }: { href: string; label: string; isS
   return (
     <a 
       href={href} 
-      className={`font-poppins font-medium hover:text-[#f97316] transition-colors ${
+      className={`font-normal hover:text-[#f97316] transition-colors ${
         isScrolled ? 'text-gray-800' : 'text-white'
       }`}
     >
@@ -127,7 +125,7 @@ function MobileNavLink({ href, label, onClick }: { href: string; label: string; 
   return (
     <a 
       href={href} 
-      className="font-poppins font-medium text-gray-800 hover:text-[#f97316] transition-colors"
+      className="font-normal text-gray-800 hover:text-[#f97316] transition-colors"
       onClick={onClick}
     >
       {label}
