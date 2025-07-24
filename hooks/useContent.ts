@@ -1,3 +1,5 @@
+"use client"
+
 // hooks/useContent.ts
 // Hooks personalizados para gerenciar conteúdo do CMS
 

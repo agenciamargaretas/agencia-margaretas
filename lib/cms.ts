@@ -89,17 +89,17 @@ class CMSClient {
 
   async getServices(): Promise<Service[]> {
     const data = await this.fetch('/services?populate=*')
-    return data?.data?.map((item: any) => item.attributes) || []
+    return data?.data?.map((item: { attributes: Service }) => item.attributes) || []
   }
 
   async getPortfolio(): Promise<PortfolioItem[]> {
     const data = await this.fetch('/portfolio-items?populate=*')
-    return data?.data?.map((item: any) => item.attributes) || []
+    return data?.data?.map((item: { attributes: PortfolioItem }) => item.attributes) || []
   }
 
   async getTestimonials(): Promise<Testimonial[]> {
     const data = await this.fetch('/testimonials?populate=*')
-    return data?.data?.map((item: any) => item.attributes) || []
+    return data?.data?.map((item: { attributes: Testimonial }) => item.attributes) || []
   }
 }
 

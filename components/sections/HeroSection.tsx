@@ -1,4 +1,7 @@
+"use client"
+
 import { useHeroContent } from '@/hooks/useContent'
+import Image from 'next/image'
 
 export default function HeroSection() {
   const { content, loading } = useHeroContent()
@@ -43,10 +46,12 @@ export default function HeroSection() {
       {/* Background Image from CMS */}
       {heroContent.backgroundImage?.url && (
         <div className="absolute inset-0">
-          <img 
+          <Image 
             src={heroContent.backgroundImage.url} 
             alt={heroContent.backgroundImage.alt || "Background"}
-            className="w-full h-full object-cover opacity-20"
+            fill
+            className="object-cover opacity-20"
+            priority
           />
         </div>
       )}
