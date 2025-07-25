@@ -1,5 +1,5 @@
 import React from 'react'
-import { sanityFetch, queries } from '@/lib/sanity'
+import { sanityFetch, queries } from '../sanity/lib/client'
 import HeroSection from '../components/sections/HeroSection'
 import ExplanationSection from '../components/sections/ExplanationSection'
 import ChallengesSection from '../components/sections/ChallengesSection'
