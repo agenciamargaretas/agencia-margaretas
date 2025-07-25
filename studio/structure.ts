@@ -17,4 +17,4 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('challenges').title('Seção de Desafios'),
       S.documentTypeListItem('methodEye').title('Seção MethodEYE'),
       S.documentTypeListItem('diagnostic').title('Seção de Diagnóstico'),
-    ])
+    ]) 
