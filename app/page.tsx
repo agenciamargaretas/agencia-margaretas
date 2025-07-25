@@ -1,4 +1,5 @@
 import React from 'react'
+import { sanityFetch, queries } from '@/lib/sanity'
 import HeroSection from '../components/sections/HeroSection'
 import ExplanationSection from '../components/sections/ExplanationSection'
 import ChallengesSection from '../components/sections/ChallengesSection'
@@ -9,13 +10,49 @@ import TestimonialsSection from '../components/sections/TestimonialsSection'
 import TargetAudienceSection from '../components/sections/TargetAudienceSection'
 import DiagnosticSection from '../components/sections/DiagnosticSection'
 
-export default function Home() {
+interface HeroData {
+  title: string
+  subtitle: string
+  ctaText: string
+  ctaLink: string
+  backgroundImage?: {
+    asset: {
+      url: string
+    }
+  } | string
+}
+
+interface Service {
+  id: number
+  title: string
+  subtitle: string
+  description: string
+  highlight: string
+  cta: string
+  icon: string
+  isActive: boolean
+  order: number
+}
+
+interface ServicesData {
+  title: string
+  subtitle: string
+  servicesList: Service[]
+  isActive: boolean
+  order: number
+}
+
+export default async function Home() {
+  // Buscar dados do Hero e Services do Sanity
+  const heroData = await sanityFetch<HeroData>(queries.hero)
+  const servicesData = await sanityFetch<ServicesData>(queries.services)
+
   return (
     <main>
-      <HeroSection />
+      <HeroSection heroData={heroData} />
       <ExplanationSection />
       <ChallengesSection />
-      <ServicesSection />
+      <ServicesSection servicesData={servicesData} />
       <PortfolioSection />
       <TestimonialsSection />
       <TargetAudienceSection />

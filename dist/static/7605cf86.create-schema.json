@@ -1,0 +1,1504 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Título principal da seção hero",
+        "name": "title",
+        "type": "string",
+        "title": "Título Principal"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Subtítulo descritivo",
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Texto do botão de call-to-action",
+        "name": "ctaText",
+        "type": "string",
+        "title": "Texto do Botão CTA"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link de destino do botão (ex: #contato)",
+        "name": "ctaLink",
+        "type": "string",
+        "title": "Link do Botão CTA"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Imagem de fundo da seção hero",
+        "name": "backgroundImage",
+        "type": "image",
+        "title": "Imagem de Fundo"
+      },
+      {
+        "initialValue": true,
+        "description": "Define se esta seção está ativa no site",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 1,
+        "description": "Ordem de exibição da seção",
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "hero",
+    "type": "document",
+    "title": "Seção Hero"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Título principal da seção de serviços",
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "description": "Subtítulo descritivo da seção",
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo da Seção"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título do Serviço"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "subtitle",
+                "type": "text",
+                "title": "Subtítulo do Serviço"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "description": "Frase de destaque do serviço",
+                "name": "highlight",
+                "type": "string",
+                "title": "Destaque"
+              },
+              {
+                "description": "Texto do botão de call-to-action",
+                "name": "cta",
+                "type": "string",
+                "title": "Texto do CTA"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Olho (Branding)",
+                      "value": "EyeIcon"
+                    },
+                    {
+                      "title": "Grupo de Pessoas (Redes Sociais)",
+                      "value": "UserGroupIcon"
+                    },
+                    {
+                      "title": "Globo (Sites)",
+                      "value": "GlobeAltIcon"
+                    },
+                    {
+                      "title": "Foguete (Performance)",
+                      "value": "RocketLaunchIcon"
+                    },
+                    {
+                      "title": "Lâmpada (Consultoria)",
+                      "value": "LightBulbIcon"
+                    },
+                    {
+                      "title": "Engrenagem (Soluções)",
+                      "value": "CogIcon"
+                    }
+                  ]
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "valid",
+                        "constraint": [
+                          "EyeIcon",
+                          "UserGroupIcon",
+                          "GlobeAltIcon",
+                          "RocketLaunchIcon",
+                          "LightBulbIcon",
+                          "CogIcon"
+                        ]
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Escolha um ícone para o serviço",
+                "name": "icon",
+                "type": "string",
+                "title": "Ícone"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Serviço Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "servicesList",
+        "type": "array",
+        "title": "Lista de Serviços"
+      },
+      {
+        "initialValue": true,
+        "description": "Define se esta seção está ativa no site",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 2,
+        "description": "Ordem de exibição da seção",
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "services",
+    "type": "document",
+    "title": "Seção de Serviços"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Título principal da seção de depoimentos",
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "description": "Subtítulo descritivo da seção",
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo da Seção"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "id",
+                "type": "number",
+                "title": "ID do Depoimento"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string",
+                "title": "Nome do Cliente"
+              },
+              {
+                "description": "Cargo ou função do cliente",
+                "name": "role",
+                "type": "string",
+                "title": "Cargo/Função"
+              },
+              {
+                "description": "Nome da empresa do cliente",
+                "name": "company",
+                "type": "string",
+                "title": "Empresa"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Texto do depoimento",
+                "name": "testimonial",
+                "type": "text",
+                "title": "Depoimento"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "min",
+                        "constraint": 1
+                      },
+                      {
+                        "flag": "max",
+                        "constraint": 5
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Avaliação de 1 a 5 estrelas",
+                "name": "rating",
+                "type": "number",
+                "title": "Avaliação"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "description": "Foto do cliente (opcional)",
+                "name": "avatar",
+                "type": "image",
+                "title": "Foto do Cliente"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Depoimento Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "testimonialsList",
+        "type": "array",
+        "title": "Lista de Depoimentos"
+      },
+      {
+        "initialValue": true,
+        "description": "Define se esta seção está ativa no site",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 3,
+        "description": "Ordem de exibição da seção",
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "testimonials",
+    "type": "document",
+    "title": "Seção de Depoimentos"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Título principal da seção de portfolio",
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "description": "Subtítulo descritivo da seção",
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo da Seção"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "id",
+                "type": "number",
+                "title": "ID do Projeto"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título do Projeto"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "description": "Nome do cliente",
+                "name": "client",
+                "type": "string",
+                "title": "Cliente"
+              },
+              {
+                "description": "Categoria do projeto (ex: Branding, Site, Social Media)",
+                "name": "category",
+                "type": "string",
+                "title": "Categoria"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "description": "Imagem principal do projeto",
+                "name": "image",
+                "type": "image",
+                "title": "Imagem do Projeto"
+              },
+              {
+                "description": "Galeria de imagens do projeto",
+                "of": [
+                  {
+                    "type": "image"
+                  }
+                ],
+                "name": "images",
+                "type": "array",
+                "title": "Galeria de Imagens"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Link para o projeto (se disponível)",
+                "name": "url",
+                "type": "url",
+                "title": "URL do Projeto"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Projeto Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "projectsList",
+        "type": "array",
+        "title": "Lista de Projetos"
+      },
+      {
+        "initialValue": true,
+        "description": "Define se esta seção está ativa no site",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 4,
+        "description": "Ordem de exibição da seção",
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "portfolio",
+    "type": "document",
+    "title": "Seção de Portfolio"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "description",
+        "type": "array",
+        "title": "Descrição"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Imagem"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 5,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "about",
+    "type": "document",
+    "title": "Seção Sobre"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "title": "Telefone"
+      },
+      {
+        "name": "address",
+        "type": "text",
+        "title": "Endereço"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "instagram",
+            "type": "url"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "facebook",
+            "type": "url"
+          }
+        ],
+        "name": "socialMedia",
+        "type": "object",
+        "title": "Redes Sociais"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 6,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "contact",
+    "type": "document",
+    "title": "Seção de Contato"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string",
+                "title": "Nome"
+              },
+              {
+                "name": "logo",
+                "type": "image"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "clientsList",
+        "type": "array",
+        "title": "Lista de Clientes"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 7,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "clients",
+    "type": "document",
+    "title": "Seção de Clientes"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título"
+              },
+              {
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "name": "icon",
+                "type": "string",
+                "title": "Ícone"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "valuesList",
+        "type": "array",
+        "title": "Lista de Valores"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 8,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "agencyValue",
+    "type": "document",
+    "title": "Seção de Valores da Agência"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título"
+              },
+              {
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "name": "image",
+                "type": "image",
+                "title": "Imagem"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "audienceList",
+        "type": "array",
+        "title": "Lista de Públicos-Alvo"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 9,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "targetAudience",
+    "type": "document",
+    "title": "Seção de Público-Alvo"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título"
+              },
+              {
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "challengesList",
+        "type": "array",
+        "title": "Lista de Desafios"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 10,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "challenges",
+    "type": "document",
+    "title": "Seção de Desafios"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Título"
+              },
+              {
+                "name": "description",
+                "type": "text",
+                "title": "Descrição"
+              },
+              {
+                "name": "icon",
+                "type": "string",
+                "title": "Ícone"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "steps",
+        "type": "array",
+        "title": "Etapas do Método"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 11,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "methodEye",
+    "type": "document",
+    "title": "Seção MethodEYE"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título da Seção"
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "title": "Subtítulo"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "question",
+                "type": "string",
+                "title": "Pergunta"
+              },
+              {
+                "name": "type",
+                "type": "string",
+                "title": "Tipo"
+              },
+              {
+                "of": [
+                  {
+                    "type": "string"
+                  }
+                ],
+                "name": "options",
+                "type": "array",
+                "title": "Opções"
+              },
+              {
+                "initialValue": true,
+                "name": "isActive",
+                "type": "boolean",
+                "title": "Ativo"
+              },
+              {
+                "initialValue": 0,
+                "name": "order",
+                "type": "number",
+                "title": "Ordem"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "questions",
+        "type": "array",
+        "title": "Perguntas do Diagnóstico"
+      },
+      {
+        "initialValue": true,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Seção Ativa"
+      },
+      {
+        "initialValue": 12,
+        "name": "order",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "diagnostic",
+    "type": "document",
+    "title": "Seção Diagnóstico"
+  }
+]
