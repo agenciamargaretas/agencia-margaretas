@@ -23,7 +23,8 @@ interface HeroData {
 }
 
 interface Service {
-  id: number
+  _key: string;
+  id?: number
   title: string
   subtitle: string
   description: string
